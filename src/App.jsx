@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Header from "nav/Header";
 import Footer from "dashboard/Footer";
 import { Provider } from "react-redux";
+import ErrorBoundary from "./Components/ErrorBoundary/index.jsx";
 
 // import Products from "dashboard/Products";
 
@@ -161,7 +162,9 @@ const App = () => {
 };
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </Provider>,
   document.getElementById("app")
 );
