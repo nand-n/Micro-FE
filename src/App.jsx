@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Header from "nav/Header";
 import Footer from "dashboard/Footer";
+import { Provider } from "react-redux";
+
 // import Products from "dashboard/Products";
 
 import { useStore } from "host/store";
 
 import "./index.scss";
+import store from "./Store/store";
 
 const App = () => {
   const { count, increment } = useStore();
@@ -156,4 +159,9 @@ const App = () => {
     </div>
   );
 };
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app")
+);
